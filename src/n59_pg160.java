@@ -1,4 +1,5 @@
 public class n59_pg160
+        // Kaden Nathani 4/16/19
         // create 5 integers that are random between 60-100 and then find the minimum
 {
     public static void main(String[] args)

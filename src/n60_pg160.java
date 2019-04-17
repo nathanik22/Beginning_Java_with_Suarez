@@ -1,5 +1,6 @@
 public class n60_pg160
-//Create 3 random from 0-50 and then calculate average of the three to the nearest tenth
+// Kaden Nathani 4/16/19
+// Create 3 random from 0-50 and then calculate average of the three to the nearest tenth
 {
     public static void main(String[] args)
     {

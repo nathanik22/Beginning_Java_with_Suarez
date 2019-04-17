@@ -1,5 +1,6 @@
 public class n53_pg160
-    // create 2 integers that are random between 0-100 and then find the minimum
+    // Kaden Nathani 4/16/19
+        // create 2 integers that are random between 0-100 and then find the minimum
 {
     public static void main(String[] args)
     {
