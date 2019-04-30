@@ -6,7 +6,7 @@ public class SimpleCalculator
         double inp1, inp2;
         Scanner input1 = new Scanner(System.in);
         String operand;
-        System.out.println("Welcom to the calculator");
+        System.out.println("Welcome to the calculator");
         System.out.println();
         System.out.println("Enter First Value Below");
         inp1 = input1.nextDouble();
