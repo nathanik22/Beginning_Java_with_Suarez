@@ -56,7 +56,8 @@ public class Cashier
                 case"Finished":
                     System.out.printf("Total is %.2f",total);
                     break;
-
+                case"":
+                    break;
                 default: System.out.println("Sorry I don't recognize this item, please check for spelling and capitalization errors");
                 break;
             }
