@@ -29,6 +29,11 @@ public class Box {
         return length*width*height;
 
     }
+    public String toString()
+    {
+        return "Box with length "+length+" and width "+width;
+    }
+
     public void SetWidth(double width1)
     {
         width = width1;

@@ -10,6 +10,8 @@ public class BoxClient
         System.out.println("The length of the box is "+second.getLength());
         System.out.println("The area of the box is "+second.calculateArea());
         second.calculateVolume();
+        System.out.println("");
+        System.out.println(second.toString());
 
     }
 }
