@@ -24,47 +24,48 @@ public class Cashier
         System.out.println("Do you have any items to scan? (Yes or No)");
         String answer = input.next();
         // check if the input is yes
-        System.out.println("List all of your items to scan below with a new line for each. If you have no more type Finished");
         String list = "";
-        while (answer.equalsIgnoreCase("yes") && ! list.equalsIgnoreCase("Finished"))
+        while (answer.equalsIgnoreCase("yes") && ! list.equalsIgnoreCase("no") && ! list.equalsIgnoreCase("Finish and Pay") && ! list.equalsIgnoreCase("cancel"))
         {
-            list = input.nextLine();
+            System.out.println("List what items you want to scan. When you are done type Finish and Pay. If you want to cancel type cancel");
+            while (answer.equalsIgnoreCase("yes") && !list.equalsIgnoreCase("Finish and Pay") && !list.equalsIgnoreCase("cancel")) {
+                list = input.nextLine().toLowerCase();
+                switch (list) {
+                    case "beans":
+                        total = total + beans;
+                        break;
+                    case "chips":
+                        total = total + chips;
+                        break;
+                    case "soda":
+                        total = total + soda;
+                        break;
+                    case "steak":
+                        total = total + steak;
+                        break;
+                    case "chicken":
+                        total = total + chicken;
+                        break;
+                    case "ice cream":
+                        total = total + icecream;
+                        break;
+                    case "popsicles":
+                        total = total + popsicles;
+                        break;
+                    case "finish and pay":
+                        System.out.printf("Total is $%.2f", total);
+                        break;
+                    case "":
+                        break;
+                    case "cancel":
+                        System.out.println("Canceled");
+                        break;
+                    default:
+                        System.out.println("Sorry I don't recognize this item, please check for spelling and capitalization errors");
+                        break;
+                }
 
-            switch(list)
-            {
-                case"Beans":
-                    total = total+beans;
-                    break;
-                case"Chips":
-                    total = total+chips;
-                    break;
-                case"Soda":
-                    total = total+soda;
-                    break;
-                case"Steak":
-                    total = total+steak;
-                    break;
-                case"Chicken":
-                    total = total+chicken;
-                    break;
-                case"Ice Cream":
-                    total = total+icecream;
-                    break;
-                case"Popsicles":
-                    total = total+popsicles;
-                    break;
-                case"Finished":
-                    System.out.printf("Total is %.2f",total);
-                    break;
-                case"":
-                    break;
-                default: System.out.println("Sorry I don't recognize this item, please check for spelling and capitalization errors");
-                break;
             }
-
         }
-
-
-
     }
 }
