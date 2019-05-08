@@ -17,8 +17,7 @@ public class Popular1940 {
                 double babynumber = 0;
                 while (lineinput.hasNextDouble()) {
                     babynumber = lineinput.nextDouble();
-                    count = count + 10;
-                    while(count == 1950)
+                    while(count == 1940)
                     {
                         if(babynumber>value)
                         {
@@ -28,6 +27,7 @@ public class Popular1940 {
                         }
                         break;
                     }
+                    count = count + 10;
                 }
 
 
