@@ -6,22 +6,33 @@ public class Popular1940 {
         public static void main(String[] args) throws IOException {
             File fileinput = new File("/Users/Kadenn/IdeaProjects/Beginning Java with the Suarez/src/names");
             Scanner sc = new Scanner(fileinput);
+            double value = 0;
+            String finalname = "";
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 Scanner lineinput = new Scanner(line);
                 String name = lineinput.next();
                 double count = 1900;
                 double total = 0;
+                double babynumber = 0;
                 while (lineinput.hasNextDouble()) {
-                    double babynumber = lineinput.nextDouble();
+                    babynumber = lineinput.nextDouble();
                     count = count + 10;
+                    while(count == 1950)
+                    {
+                        if(babynumber>value)
+                        {
+                            value = babynumber;
+                            finalname = name;
+                            break;
+                        }
+                        break;
+                    }
                 }
-                while(count == 1940)
-                {
 
-                }
 
             }
+            System.out.println("The most popular baby name in 1940 was "+finalname+"\nThis name was used "+value+" times in 1940");
         }
     }
 
