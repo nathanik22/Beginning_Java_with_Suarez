@@ -2,18 +2,21 @@ import java.util.Scanner;
 import java.util.*;
 
 public class Hangman1 {
-    String word = "";
-    String wordtwo = word;
-    String wordthree = word;
-    String underscores = "";
-    int wordlength = word.length();
-    int wordcount = 0;
-    int guesscount = 7;
-    Scanner sc = new Scanner(System.in);
-    public void wordtime() {
+        static String word = "";
+        static String wordtwo;
+        static String wordthree;
+    static int wordlength = word.length();
+        static String underscores = "";
+
+        static int wordcount = 0;
+        static int guesscount = 7;
+        static Scanner sc = new Scanner(System.in);
+    public static void wordchoice() {
 
         System.out.println("Please type the word");
-        String word = sc.next();
+        word = sc.next();
+        wordtwo = word;
+        wordthree = wordtwo;
         int listvariable = 0;
 
         ArrayList<String> letters = new ArrayList<String>();
@@ -38,7 +41,8 @@ public class Hangman1 {
         // so I thought maybe to compare arraylists it wouldnt matter the order
         System.out.println();
     }
-        public void guessing(){
+
+        public static void guessing() {
         ArrayList<String> list = new ArrayList<String>();
         ArrayList<String> badlist = new ArrayList<String>();
         //Here is the loop of the player guessing letters.
@@ -188,11 +192,9 @@ public class Hangman1 {
             }
 
         }}
-        public void checkWin() {
+        public static void checkWin() {
 
             if ((wordtwo.equals(""))) {
-                System.out.println("");
-                System.out.println("");
                 System.out.println("");
                 System.out.println("YOU HAVE GUESSED CORRECTLY");
             } else if (guesscount == 7) {
