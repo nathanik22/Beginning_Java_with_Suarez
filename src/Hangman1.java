@@ -6,6 +6,14 @@ public class Hangman1 {
         Scanner sc = new Scanner(System.in);
         System.out.println("Please type the word");
         String word = sc.next();
+        int listvariable = 0;
+        ArrayList<String> letters = new ArrayList<String>();
+//        while()word needs to be checked if when trying to get the letter at index, check if word has an index of listvariable
+//        {
+//             letters.add(substring.word(listvariable))
+//             listvariable++;
+//        }
+
         String letterstoguess = "";
         int wordlength = word.length();
         int wordcount = 0;
@@ -20,7 +28,7 @@ public class Hangman1 {
         ArrayList<String> list = new ArrayList<String>();
         ArrayList<String> badlist = new ArrayList<String>();
         //Here is the loop of the player guessing letters.
-        while (guesscount<7 && !(word.equalsIgnoreCase(letterstoguess)))
+        while (guesscount<7 && (!(word.equalsIgnoreCase(letterstoguess))))
         {
             System.out.println("Please guess a letter");
             String currentguess = sc.next();
