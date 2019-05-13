@@ -24,7 +24,6 @@ public class Hangman1 {
         //Below is the loop of listing the length of the word for the player.
         while(wordcount<wordlength)
         {
-            underscores = underscores + "_";
             System.out.print("_ ");
             wordcount++;
         }
@@ -34,7 +33,6 @@ public class Hangman1 {
 //        }
         //^^^ that was because when i guessed the word but with the letters not in order, it wouldnt say that you guessed correctly
         // so I thought maybe to compare arraylists it wouldnt matter the order
-        System.out.println(letters);
         System.out.println();
         ArrayList<String> list = new ArrayList<String>();
         ArrayList<String> badlist = new ArrayList<String>();
@@ -115,7 +113,16 @@ public class Hangman1 {
                 System.out.println(currentguess+" was in the word at index "+try1);
                 list.add(currentguess);
                 wordtwo = wordtwo.replace(currentguess, "");
-                underscores = underscores.replace(underscores.substring(try1), currentguess);
+//                underscores = underscores.replace(underscores.substring(try1), currentguess);
+//                System.out.println(underscores);
+                if(list.contains(currentguess)){
+                    System.out.print(currentguess+" ");
+                }
+                if(!(list.contains(currentguess))){
+                    System.out.print("_ ");
+
+                }
+                System.out.println();
             }
             else if(try1>= 0 && list.contains(currentguess)) {
                 System.out.println(currentguess + " has already been guessed and is in the word at index "+try1);
