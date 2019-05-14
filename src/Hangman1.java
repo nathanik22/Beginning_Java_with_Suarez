@@ -111,6 +111,7 @@ public class Hangman1 {
         while (guesscount>0 && (!(wordtwo.equalsIgnoreCase(""))))
         {
             System.out.println("");
+            System.out.println("");
             hanger(7-guesscount);
             System.out.println("");
             System.out.println("Guesses left: "+guesscount);
@@ -119,10 +120,12 @@ public class Hangman1 {
             System.out.println("");
             System.out.println("Please guess a letter");
             String currentguess = sc.next();
-            System.out.println(""); System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");
             int try1 = word.indexOf(currentguess);
             int heck;
             if(try1<0 && !(badlist.contains(currentguess))){
+                for(int i = 0; i < 50; i++) {
+                    System.out.println();
+                }
                 guesscount--;
 
                 System.out.println(currentguess+" was not in the word");
@@ -142,7 +145,9 @@ public class Hangman1 {
             }
 
             else if(try1>= 0 && !(list.contains(currentguess))){
-
+                for(int i = 0; i < 50; i++) {
+                    System.out.println();
+                }
                 list.add(currentguess);
                 wordtwo = wordtwo.replace(currentguess, "");
 //                underscores = underscores.replace(underscores.substring(try1), currentguess);
@@ -181,6 +186,9 @@ public class Hangman1 {
 //                System.out.println();
             }
             else if(try1>= 0 && list.contains(currentguess)) {
+                for(int i = 0; i < 50; i++) {
+                    System.out.println();
+                }
                 int counter = 0;
                 System.out.println(currentguess+" has already been guessed");
                 while(counter<word.length()){
@@ -195,6 +203,9 @@ public class Hangman1 {
                 }
 
             else if(try1<0 && badlist.contains(currentguess)){
+                for(int i = 0; i < 50; i++) {
+                    System.out.println();
+                }
                 System.out.println(currentguess +" has already been guessed but is not in the word");
                 int counter = 0;
                 while(counter<word.length()){
@@ -214,7 +225,11 @@ public class Hangman1 {
             if ((wordtwo.equals(""))) {
                 System.out.println("");
                 System.out.println("YOU HAVE GUESSED CORRECTLY");
-            } else if (guesscount == 7) {
+            } else if (guesscount == 0) {
+                for(int i = 0; i < 4; i++) {
+                    System.out.println();
+                }
+                hanger(7);
                 System.out.println("");
                 System.out.println("");
                 System.out.println("You ran out of guesses. The man died.");
