@@ -11,7 +11,7 @@ public class Hangman1 {
         static int wordcount = 0;
         static int guesscount = 7;
         static Scanner sc = new Scanner(System.in);
-    public static void wordchoice() {
+        public static void wordchoice() {
 
         System.out.println("Please type the word");
         word = sc.next();
@@ -27,7 +27,7 @@ public class Hangman1 {
 //        }
         Scanner input = new Scanner(word);
         String letterstoguess = "";
-
+        System.out.println("");
         //Below is the loop of listing the length of the word for the player.
         while (wordcount < wordlength) {
             System.out.print("_ ");
@@ -201,6 +201,185 @@ public class Hangman1 {
                 System.out.println("");
                 System.out.println("");
                 System.out.println("You ran out of guesses. The man died.");
+            }
+        }
+        public static void hanger(int parts) {
+            switch(parts) {
+                case 0:
+                    System.out.println("          ________________________");
+                    System.out.println("         | /                      |");
+                    System.out.println("         |/                       |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("_________|_________");
+                    break;
+                case 1:
+                    System.out.println("          ________________________");
+                    System.out.println("         | /                      |");
+                    System.out.println("         |/                       |");
+                    System.out.println("         |                      _____");
+                    System.out.println("         |                    _|     |_");
+                    System.out.println("         |                   |_________|");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("_________|_________");
+                    break;
+                case 2:
+                    System.out.println("          ________________________");
+                    System.out.println("         | /                      |");
+                    System.out.println("         |/                       |");
+                    System.out.println("         |                      _____");
+                    System.out.println("         |                    _|     |_");
+                    System.out.println("         |                   |_________|");
+                    System.out.println("         |                     / _ _ \\");
+                    System.out.println("         |                    (   ^   )");
+                    System.out.println("         |                    \\_____/");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("_________|_________");
+                    break;
+                case 3:
+                    System.out.println("          ________________________");
+                    System.out.println("         | /                      |");
+                    System.out.println("         |/                       |");
+                    System.out.println("         |                      _____");
+                    System.out.println("         |                    _|     |_");
+                    System.out.println("         |                   |_________|");
+                    System.out.println("         |                     / _ _ \\");
+                    System.out.println("         |                    (   ^   )");
+                    System.out.println("         |                    \\_____/");
+                    System.out.println("         |                       | |");
+                    System.out.println("         |                       | |");
+                    System.out.println("         |                       | |");
+                    System.out.println("         |                       | |");
+                    System.out.println("         |                       | |");
+                    System.out.println("         |                       |_|");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("_________|_________");
+                    break;
+                case 4:
+                    System.out.println("          ________________________");
+                    System.out.println("         | /                      |");
+                    System.out.println("         |/                       |");
+                    System.out.println("         |                      _____");
+                    System.out.println("         |                    _|     |_");
+                    System.out.println("         |                   |_________|");
+                    System.out.println("         |                     / _ _ \\");
+                    System.out.println("         |                    (   ^   )");
+                    System.out.println("         |                    \\_____/");
+                    System.out.println("         |                       | |");
+                    System.out.println("         |                      _| |");
+                    System.out.println("         |                     / | |");
+                    System.out.println("         |                    /  | |");
+                    System.out.println("         |                       | |");
+                    System.out.println("         |                       |_|");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("_________|_________");
+                    break;
+                case 5:
+                    System.out.println("          ________________________");
+                    System.out.println("         | /                      |");
+                    System.out.println("         |/                       |");
+                    System.out.println("         |                      _____");
+                    System.out.println("         |                    _|     |_");
+                    System.out.println("         |                   |_________|");
+                    System.out.println("         |                     / _ _ \\");
+                    System.out.println("         |                    (   ^   )");
+                    System.out.println("         |                    \\_____/");
+                    System.out.println("         |                       | |");
+                    System.out.println("         |                      _| |_");
+                    System.out.println("         |                     / | | \\");
+                    System.out.println("         |                    /  | |  \\");
+                    System.out.println("         |                       | |");
+                    System.out.println("         |                       |_|");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("         |");
+                    System.out.println("_________|_________");
+                    break;
+                case 6:
+                    System.out.println("          ________________________");
+                    System.out.println("         | /                      |");
+                    System.out.println("         |/                       |");
+                    System.out.println("         |                      _____");
+                    System.out.println("         |                    _|     |_");
+                    System.out.println("         |                   |_________|");
+                    System.out.println("         |                     / _ _ \\");
+                    System.out.println("         |                    (   ^   )");
+                    System.out.println("         |                    \\_____/");
+                    System.out.println("         |                       | |");
+                    System.out.println("         |                      _| |_");
+                    System.out.println("         |                     / | | \\");
+                    System.out.println("         |                    /  | |  \\");
+                    System.out.println("         |                       | |");
+                    System.out.println("         |                       |_|");
+                    System.out.println("         |                      /");
+                    System.out.println("         |                     /");
+                    System.out.println("         |                    /");
+                    System.out.println("         |");
+                    System.out.println("_________|_________");
+                    break;
+                case 7:
+                    System.out.println("          ________________________");
+                    System.out.println("         | /                      |");
+                    System.out.println("         |/                       |");
+                    System.out.println("         |                      _____");
+                    System.out.println("         |                    _|     |_");
+                    System.out.println("         |                   |_________|");
+                    System.out.println("         |                     / _ _ \\");
+                    System.out.println("         |                    (   ^   )");
+                    System.out.println("         |                    \\_____/");
+                    System.out.println("         |                       | |");
+                    System.out.println("         |                      _| |_");
+                    System.out.println("         |                     / | | \\");
+                    System.out.println("         |                    /  | |  \\");
+                    System.out.println("         |                       | |");
+                    System.out.println("         |                       |_|");
+                    System.out.println("         |                      /   \\");
+                    System.out.println("         |                     /     \\");
+                    System.out.println("         |                    /       \\");
+                    System.out.println("         |");
+                    System.out.println("_________|_________");
             }
         }
 
