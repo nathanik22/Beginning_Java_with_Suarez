@@ -110,18 +110,34 @@ public class Hangman1 {
 //        }
         while (guesscount>0 && (!(wordtwo.equalsIgnoreCase(""))))
         {
+            System.out.println("");
+            hanger(7-guesscount);
+            System.out.println("");
+            System.out.println("Guesses left: "+guesscount);
+            System.out.println("Incorrect Guesses: "+badlist);
+            System.out.println("");
+            System.out.println("");
             System.out.println("Please guess a letter");
             String currentguess = sc.next();
+            System.out.println(""); System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");System.out.println("");
             int try1 = word.indexOf(currentguess);
             int heck;
             if(try1<0 && !(badlist.contains(currentguess))){
+                guesscount--;
+
                 System.out.println(currentguess+" was not in the word");
                 badlist.add(currentguess);
-                guesscount--;
-                System.out.println("Guesses left: "+guesscount);
-                System.out.println("Incorrect Guesses: "+badlist);
-                System.out.println("");
-                System.out.println("");
+
+                int counter = 0;
+                while(counter<word.length()){
+                    if(list.contains(Character.toString(word.charAt(counter)))){
+                        System.out.print((Character.toString(word.charAt(counter)))+" ");
+                        counter++;
+                    }
+                    else if(!(list.contains(Character.toString(word.charAt(counter))))){
+                        System.out.print("_ ");
+                        counter++;
+                    }}
 
             }
 
@@ -154,11 +170,8 @@ public class Hangman1 {
                     System.out.print("_ ");
                     counter++;
                 }}
-                System.out.println("");
-                System.out.println("Guesses left: "+guesscount);
-                System.out.println("Incorrect Guesses: "+badlist);
-                System.out.println("");
-                System.out.println("");
+
+
 //                if(list.contains(currentguess)){
 //                    System.out.print(currentguess+" ");
 //                }
@@ -178,17 +191,21 @@ public class Hangman1 {
                     else if(!(list.contains(Character.toString(word.charAt(counter))))){
                         System.out.print("_ ");
                         counter++;
-                    }}System.out.println("Guesses left: "+guesscount);
-                System.out.println("Incorrect Guesses: "+badlist);
-                System.out.println("");
-                System.out.println("");}
+                    }}
+                }
 
             else if(try1<0 && badlist.contains(currentguess)){
                 System.out.println(currentguess +" has already been guessed but is not in the word");
-                System.out.println("Guesses left: "+guesscount);
-                System.out.println("Incorrect Guesses: "+badlist);
-                System.out.println("");
-                System.out.println("");
+                int counter = 0;
+                while(counter<word.length()){
+                    if(list.contains(Character.toString(word.charAt(counter)))){
+                        System.out.print((Character.toString(word.charAt(counter)))+" ");
+                        counter++;
+                    }
+                    else if(!(list.contains(Character.toString(word.charAt(counter))))){
+                        System.out.print("_ ");
+                        counter++;
+                    }}
             }
 
         }}
@@ -258,7 +275,7 @@ public class Hangman1 {
                     System.out.println("         |                   |_________|");
                     System.out.println("         |                     / _ _ \\");
                     System.out.println("         |                    (   ^   )");
-                    System.out.println("         |                    \\_____/");
+                    System.out.println("         |                     \\_____/");
                     System.out.println("         |");
                     System.out.println("         |");
                     System.out.println("         |");
@@ -280,7 +297,7 @@ public class Hangman1 {
                     System.out.println("         |                   |_________|");
                     System.out.println("         |                     / _ _ \\");
                     System.out.println("         |                    (   ^   )");
-                    System.out.println("         |                    \\_____/");
+                    System.out.println("         |                     \\_____/");
                     System.out.println("         |                       | |");
                     System.out.println("         |                       | |");
                     System.out.println("         |                       | |");
@@ -302,7 +319,7 @@ public class Hangman1 {
                     System.out.println("         |                   |_________|");
                     System.out.println("         |                     / _ _ \\");
                     System.out.println("         |                    (   ^   )");
-                    System.out.println("         |                    \\_____/");
+                    System.out.println("         |                     \\_____/");
                     System.out.println("         |                       | |");
                     System.out.println("         |                      _| |");
                     System.out.println("         |                     / | |");
@@ -324,7 +341,7 @@ public class Hangman1 {
                     System.out.println("         |                   |_________|");
                     System.out.println("         |                     / _ _ \\");
                     System.out.println("         |                    (   ^   )");
-                    System.out.println("         |                    \\_____/");
+                    System.out.println("         |                     \\_____/");
                     System.out.println("         |                       | |");
                     System.out.println("         |                      _| |_");
                     System.out.println("         |                     / | | \\");
@@ -346,7 +363,7 @@ public class Hangman1 {
                     System.out.println("         |                   |_________|");
                     System.out.println("         |                     / _ _ \\");
                     System.out.println("         |                    (   ^   )");
-                    System.out.println("         |                    \\_____/");
+                    System.out.println("         |                     \\_____/");
                     System.out.println("         |                       | |");
                     System.out.println("         |                      _| |_");
                     System.out.println("         |                     / | | \\");
@@ -368,7 +385,7 @@ public class Hangman1 {
                     System.out.println("         |                   |_________|");
                     System.out.println("         |                     / _ _ \\");
                     System.out.println("         |                    (   ^   )");
-                    System.out.println("         |                    \\_____/");
+                    System.out.println("         |                     \\_____/");
                     System.out.println("         |                       | |");
                     System.out.println("         |                      _| |_");
                     System.out.println("         |                     / | | \\");
