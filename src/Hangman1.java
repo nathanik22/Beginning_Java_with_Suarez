@@ -33,11 +33,21 @@ public class Hangman1{
     static ArrayList<String> listtwentytwo = new ArrayList<String>();
     static ArrayList<String> listtwentythree = new ArrayList<String>();
 
-
+static String numorrand = "";
     static int wordcount = 0;
     static int guesscount = 7;
+    static String numberletterswanted;
+    static int numlet = -1;
 
 
+    public static boolean isInt(String check) {
+            try {
+                Integer.parseInt(check);
+                return true;
+            } catch (NumberFormatException nfe) {
+                return false;
+            }
+    }
     public static void wordchoice() throws IOException {
          File fileinput = new File("/Users/Kadenn/IdeaProjects/Beginning Java with the Suarez/src/Dictionary");
          Scanner sc = new Scanner(fileinput);
@@ -111,9 +121,6 @@ public class Hangman1{
                 case 22:
                     listtwentytwo.add(heck);
                     break;
-                case 23:
-                    listtwentythree.add(heck);
-                    break;
             }
         }
 
@@ -121,6 +128,11 @@ public class Hangman1{
         Scanner newinput = new Scanner(System.in);
         System.out.println("Do you want to choose your own word or generate a random one? (word or random)");
         String yesno = newinput.next();
+
+         while(!(yesno.equalsIgnoreCase("word"))&&!(yesno.equalsIgnoreCase("random"))){
+            System.out.println("Do you want to choose your own word or generate a random one? (word or random)");
+            yesno = newinput.next();
+        }
         if (yesno.equalsIgnoreCase("word")) {
             System.out.println("Please type the word");
             word = newinput.next();
@@ -128,8 +140,10 @@ public class Hangman1{
             wordthree = wordtwo;
 
         } else if (yesno.equalsIgnoreCase("random")) {
-            System.out.println("Do you want to totally generate a random one or generate one with a specific number of letters? (Random or Number)");
-            String numorrand = newinput.next();
+            while(!(numorrand.equalsIgnoreCase("random"))&&!(numorrand.equalsIgnoreCase("number"))){
+                System.out.println("Do you want to totally generate a random one or generate one with a specific number of letters? (Random or Number)");
+                numorrand = newinput.next();
+            }
             if (numorrand.equalsIgnoreCase("random")) {
                 Random rand = new Random();
                 File ok = new File("/Users/Kadenn/IdeaProjects/Beginning Java with the Suarez/src/Dictionary");
@@ -139,10 +153,17 @@ public class Hangman1{
                     wordtwo = word;
                     wordthree = wordtwo;
                 }}
+
                 else if (numorrand.equalsIgnoreCase("number")) {
-                    System.out.println("Please enter the number of letters you want to be in the random word");
-                    int numberletterswanted = newinput.nextInt();
-                switch(numberletterswanted) {
+                while(!(numlet<23) || !(numlet>0)){
+                    System.out.println("Please enter the number of letters you want to be in the random word (Between 1 - 22 inclusive)");
+                    numberletterswanted = newinput.next();
+                    if(isInt(numberletterswanted)) {
+                        numlet = Integer.parseInt(numberletterswanted);
+                    }
+                }
+
+                switch(numlet) {
                     case 1:
                         Collections.shuffle(listone);
                         word = listone.get(0);
@@ -298,9 +319,14 @@ public class Hangman1{
                         wordthree = wordtwo;
                         break;
                 }
-                    }
+                }
+                else
+            {
 
                 }
+
+
+        }
 
                 int listvariable = 0;
 
@@ -315,6 +341,7 @@ public class Hangman1{
         System.out.println("");
         //Below is the loop of listing the length of the word for the player.
         int wordlength = word.length();
+        word = word.toLowerCase();
         while (wordcount < wordlength) {
             System.out.print("_ ");
             wordcount++;
@@ -394,19 +421,30 @@ public class Hangman1{
 //        {
 //            System.out.println("You ran out of guesses. The man died.");
 //        }
-        while (guesscount>0 && (!(wordtwo.equalsIgnoreCase(""))))
+        while (guesscount>0 && (!(wordtwo.equalsIgnoreCase(""))) && (!(wordthree.equalsIgnoreCase(""))))
         {
             Scanner job = new Scanner(System.in);
             System.out.println("");
             System.out.println("");
             hanger(7-guesscount);
+            for(int g = 0; g<23;g++){
+                System.out.println("");
+            }
             System.out.println("");
             System.out.println("Guesses left: "+guesscount);
+            System.out.println();
             System.out.println("Incorrect Guesses: "+badlist);
             System.out.println("");
             System.out.println("");
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
             System.out.println("Please guess a letter");
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
             String currentguess = job.next();
+            currentguess = currentguess.toLowerCase();
             int try1 = word.indexOf(currentguess);
             int heck;
             if(try1<0 && !(badlist.contains(currentguess))){
@@ -429,6 +467,9 @@ public class Hangman1{
                         counter++;
                     }}
 
+            }
+            else if(currentguess.equalsIgnoreCase(word)){
+                wordthree = "";
             }
 
             else if(try1>= 0 && !(list.contains(currentguess))){
@@ -472,6 +513,7 @@ public class Hangman1{
 //                }
 //                System.out.println();
             }
+
             else if(try1>= 0 && list.contains(currentguess)) {
                 for(int i = 0; i < 50; i++) {
                     System.out.println();
@@ -509,10 +551,17 @@ public class Hangman1{
         }}
         public static void checkWin() {
 
-            if ((wordtwo.equals(""))) {
+            if ((wordtwo.equals("")) || (wordthree.equalsIgnoreCase(""))) {
+                System.out.println("");
+                System.out.println("");
+                System.out.println("");
+                System.out.println(word);
                 hanger(7-guesscount);
                 System.out.println("");
                 System.out.println("");
+                for(int g = 0; g<30;g++){
+                    System.out.println("");
+                }
                 System.out.println("YOU HAVE GUESSED CORRECTLY");
                 System.out.println("");
                 System.out.println("");
@@ -524,6 +573,9 @@ public class Hangman1{
                 hanger(7);
                 System.out.println("");
                 System.out.println("");
+                for(int g = 0; g<30;g++){
+                    System.out.println("");
+                }
                 System.out.println("You ran out of guesses. The man died.");
                 System.out.println("");
                 System.out.println("");
@@ -533,6 +585,7 @@ public class Hangman1{
         public static void hanger(int parts) {
             switch(parts) {
                 case 0:
+                    System.out.println("");
                     System.out.println("          ________________________");
                     System.out.println("         | /                      |");
                     System.out.println("         |/                       |");
@@ -555,6 +608,7 @@ public class Hangman1{
                     System.out.println("_________|_________");
                     break;
                 case 1:
+                    System.out.println("");
                     System.out.println("          ________________________");
                     System.out.println("         | /                      |");
                     System.out.println("         |/                       |");
@@ -577,6 +631,7 @@ public class Hangman1{
                     System.out.println("_________|_________");
                     break;
                 case 2:
+                    System.out.println("");
                     System.out.println("          ________________________");
                     System.out.println("         | /                      |");
                     System.out.println("         |/                       |");
@@ -599,6 +654,7 @@ public class Hangman1{
                     System.out.println("_________|_________");
                     break;
                 case 3:
+                    System.out.println("");
                     System.out.println("          ________________________");
                     System.out.println("         | /                      |");
                     System.out.println("         |/                       |");
@@ -621,6 +677,7 @@ public class Hangman1{
                     System.out.println("_________|_________");
                     break;
                 case 4:
+                    System.out.println("");
                     System.out.println("          ________________________");
                     System.out.println("         | /                      |");
                     System.out.println("         |/                       |");
@@ -643,6 +700,7 @@ public class Hangman1{
                     System.out.println("_________|_________");
                     break;
                 case 5:
+                    System.out.println("");
                     System.out.println("          ________________________");
                     System.out.println("         | /                      |");
                     System.out.println("         |/                       |");
@@ -665,6 +723,7 @@ public class Hangman1{
                     System.out.println("_________|_________");
                     break;
                 case 6:
+                    System.out.println("");
                     System.out.println("          ________________________");
                     System.out.println("         | /                      |");
                     System.out.println("         |/                       |");
@@ -687,6 +746,7 @@ public class Hangman1{
                     System.out.println("_________|_________");
                     break;
                 case 7:
+                    System.out.println("");
                     System.out.println("          ________________________");
                     System.out.println("         | /                      |");
                     System.out.println("         |/                       |");
