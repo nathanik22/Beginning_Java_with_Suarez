@@ -7,6 +7,7 @@ public class Hangman1{
     static String word = "";
     static String wordtwo;
     static String wordthree;
+    static int numberoflineswanted = 30;
 
     static String underscores = "";
     static ArrayList<String> listone = new ArrayList<String>();
@@ -427,7 +428,7 @@ static String numorrand = "";
             System.out.println("");
             System.out.println("");
             hanger(7-guesscount);
-            for(int g = 0; g<23;g++){
+            for(int g = 0; g<numberoflineswanted-7;g++){
                 System.out.println("");
             }
             System.out.println("");
@@ -453,7 +454,7 @@ static String numorrand = "";
                 }
                 guesscount--;
 
-                System.out.println(currentguess+" was not in the word");
+                System.err.println(currentguess+" was not in the word");
                 badlist.add(currentguess);
 
                 int counter = 0;
@@ -559,7 +560,7 @@ static String numorrand = "";
                 hanger(7-guesscount);
                 System.out.println("");
                 System.out.println("");
-                for(int g = 0; g<30;g++){
+                for(int g = 0; g<numberoflineswanted;g++){
                     System.out.println("");
                 }
                 System.out.println("YOU HAVE GUESSED CORRECTLY");
@@ -573,10 +574,10 @@ static String numorrand = "";
                 hanger(7);
                 System.out.println("");
                 System.out.println("");
-                for(int g = 0; g<30;g++){
+                for(int g = 0; g<numberoflineswanted;g++){
                     System.out.println("");
                 }
-                System.out.println("You ran out of guesses. The man died.");
+                System.err.println("You ran out of guesses. The man died.");
                 System.out.println("");
                 System.out.println("");
                 System.out.println("The word was "+word);
